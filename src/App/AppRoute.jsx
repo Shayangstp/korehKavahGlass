@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import MainLayout from "./MainLayout";
 import Dashboard from "../components/Dashboard";
 import Login from "../components/auth/Login";
+import UsersList from "../components/userManagment/UsersList";
 
 const AppRoutes = () => {
   return (
@@ -11,6 +12,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/usersList" element={<UsersList />} />
         </Routes>
       </MainLayout>
     </Fragment>
