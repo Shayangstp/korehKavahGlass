@@ -12,7 +12,7 @@ const MainLayout = ({ children }) => {
   const smallNav = useSelector(selectSmallNav);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const token = localStorage.getItem("token");
-  
+
   useEffect(() => {
     if (token) {
       dispatch(RsetIsLoggedIn(true));
@@ -20,6 +20,8 @@ const MainLayout = ({ children }) => {
       dispatch(RsetIsLoggedIn(false));
     }
   }, [token]);
+
+  console.log(isLoggedIn, token);
 
   return (
     <div className="bg-dark overflow-hidden">

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import logo from "../../img/logo/kavelogo.png";
 import {
   Navbar,
   Nav,
@@ -87,7 +88,7 @@ const Header = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <div className="w-100">
+    <div className="w-100 text-white">
       <Nav className="d-flex justify-content-end w-100">
         <div
           className={`d-flex ${
@@ -95,11 +96,8 @@ const Header = () => {
           } bg-dark borderRadius-15 p-1 border w-100`}
         >
           {!smallNav && (
-            <div className="mt-3 text-center">
-              <img
-                className="img-fluid w-25"
-                src="../../images/avlLogoFinal.png"
-              />
+            <div className=" text-center">
+              {/* <img className="img-fluid w-100" src={logo} /> */}
             </div>
           )}
           <div className="d-flex justify-content-end align-items-center">
@@ -125,57 +123,26 @@ const Header = () => {
                   />
                 )} */}
               </span>
-              <Clock
-                format="HH:mm:ss"
-                interval={1000}
-                ticking={true}
-                className="ms-3 text-light d-none d-md-inline"
-                style={{ width: "60px" }}
-                // onChange={(date) => console.log(date)}
-              />
             </div>
             <div
               className="line me-4 d-none d-md-inline ms-4"
               id="line-break"
             ></div>
             <div className="" id="profile-name">
-              <Nav.Link className="d-flex flex-column justify-content-center align-items-end text-light">
-                {/* <div className="">{user.id.username}</div> */}
+              <Nav.Link className="d-flex flex-row gap-2 justify-content-center align-items-end text-light">
+                <Clock
+                  format="HH:mm:ss"
+                  interval={1000}
+                  ticking={true}
+                  className="ms-3 text-light d-none d-md-inline"
+                  style={{ width: "60px" }}
+                  // onChange={(date) => console.log(date)}
+                />
+                <p className="mb-0">soheil_ab</p>
                 <div className="">
-                  {/* {user.id.firstname + " " + user.id.lastname} */}
+                  <p className="mb-0">سهیل آبادی</p>
                 </div>
               </Nav.Link>
-            </div>
-            <div id="profile-pic">
-              <NavDropdown
-                dir="ltr"
-                // title={
-                //   !avatar ? (
-                //     <FontAwesomeIcon
-                //       className="navIconProfile ms-2 me-3 text-light"
-                //       icon={faUserCircle}
-                //     />
-                //   ) : (
-                //     <img
-                //       className="invert navProfilePic ms-2 border border-2  border-secondary"
-                //       src="../../images/avlLogo.png"
-                //     />
-                //   )
-                // }
-                id="basic-nav-dropdown"
-                className="me-2"
-              >
-                <NavDropdown.Item className="font10 fw-bold">
-                  تغییر رمز عبور
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item
-                  className="font10 fw-bold"
-                //   onClick={() => dispatch(RsetChangeProfilePicModal(true))}
-                >
-                  {/* {avatar ? "تغییر عکس پروفایل" : "آپلود عکس پروفایل"} */}
-                </NavDropdown.Item>
-              </NavDropdown>
             </div>
           </div>
 
@@ -407,50 +374,7 @@ const Header = () => {
               {/* <Container className="me-5"> */}
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="d-flex justify-content-center w-100  ms-3">
-                  <Nav.Link className="mt-2">
-                    {/* <div>{user.id.username}</div> */}
-                  </Nav.Link>
-                  <NavDropdown
-                    drop="up"
-                    dir="ltr"
-                    // title={
-                    //   !avatar ? (
-                    //     <FontAwesomeIcon
-                    //       className="navIconProfile ms-2"
-                    //       icon={faUserCircle}
-                    //     />
-                    //   ) : (
-                    //     <img
-                    //       className="invert navProfilePic ms-2 border border-2  border-secondary"
-                    //       src="../../images/avlLogo.png"
-                    //     />
-                    //   )
-                    // }
-                    id="basic-nav-dropdown"
-                    className="me-2"
-                  >
-                    <NavDropdown.Item className="font10 fw-bold">
-                      تغییر رمز عبور
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item
-                      className="font10 fw-bold"
-                    //   onClick={() => dispatch(RsetChangeProfilePicModal(true))}
-                    >
-                      {/* {avatar ? "تغییر عکس پروفایل" : "آپلود عکس پروفایل"} */}
-                    </NavDropdown.Item>
-                  </NavDropdown>
-
-                  <Nav.Link
-                    href="/"
-                    className="me-5 mt-2"
-                    onClick={() => {
-                      localStorage.removeItem("token");
-                      dispatch(RsetIsLoggedIn(false));
-                    }}
-                  >
-                    {/* <FontAwesomeIcon icon={faPowerOff} className="fs-6" /> */}
-                  </Nav.Link>
+                  <Nav.Link className="mt-2"></Nav.Link>
                 </Nav>
               </Navbar.Collapse>
               {/* </Container> */}

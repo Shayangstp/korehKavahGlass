@@ -58,11 +58,19 @@ const authSlices = createSlice({
     RsetIsLoggedIn: (state, { payload }) => {
       return { ...state, isLoggedIn: payload };
     },
+    RsetNationalCode: (state, { payload }) => {
+      return { ...state, nationalCode: payload };
+    },
+    RsetPassword: (state, { payload }) => {
+      return { ...state, password: payload };
+    },
   },
 });
 
-export const { RsetIsLoggedIn } = authSlices.actions;
+export const { RsetIsLoggedIn, RsetNationalCode, RsetPassword } =
+  authSlices.actions;
 
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
-
+export const selectNationalCode = (state) => state.auth.nationalCode;
+export const selectPassword = (state) => state.auth.password;
 export default authSlices.reducer;

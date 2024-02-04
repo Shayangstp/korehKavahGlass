@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import MainLayout from "./MainLayout";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../components/dashboard/Dashboard";
 import Login from "../components/auth/Login";
 import UsersList from "../components/userManagment/UsersList";
 
