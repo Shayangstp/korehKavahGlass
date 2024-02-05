@@ -5,6 +5,8 @@ import { errorMessage, successMessage } from "../utils/toast";
 
 const initialState = {
   isLoggedIn: false,
+  username: "",
+  password: "",
 };
 
 export const parseJwt = (token) => {
@@ -58,8 +60,8 @@ const authSlices = createSlice({
     RsetIsLoggedIn: (state, { payload }) => {
       return { ...state, isLoggedIn: payload };
     },
-    RsetNationalCode: (state, { payload }) => {
-      return { ...state, nationalCode: payload };
+    Rsetusername: (state, { payload }) => {
+      return { ...state, username: payload };
     },
     RsetPassword: (state, { payload }) => {
       return { ...state, password: payload };
@@ -67,10 +69,10 @@ const authSlices = createSlice({
   },
 });
 
-export const { RsetIsLoggedIn, RsetNationalCode, RsetPassword } =
+export const { RsetIsLoggedIn, Rsetusername, RsetPassword } =
   authSlices.actions;
 
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
-export const selectNationalCode = (state) => state.auth.nationalCode;
+export const selectUsername = (state) => state.auth.username;
 export const selectPassword = (state) => state.auth.password;
 export default authSlices.reducer;

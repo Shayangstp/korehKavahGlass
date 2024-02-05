@@ -1,12 +1,12 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import mainSlices from "../slices/mainSlices";
 import authSlices from "../slices/authSlices";
-import modalSlices from "../slices/modalSlices";
+import userManagmentSlices from "../slices/userManagmentSlices";
 
 const rootReducer = {
   auth: authSlices,
   main: mainSlices,
-  modal: modalSlices,
+  userManagment: userManagmentSlices,
 };
 
 export const store = configureStore({

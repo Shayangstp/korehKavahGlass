@@ -12,7 +12,7 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/usersList" element={<UsersList />} />
+          <Route path="/userManagment" element={<UsersList />} />
         </Routes>
       </MainLayout>
     </Fragment>

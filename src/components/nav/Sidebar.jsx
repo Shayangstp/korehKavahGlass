@@ -2,6 +2,13 @@ import React from "react";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+import CottageIcon from "@mui/icons-material/Cottage";
+import FactoryIcon from "@mui/icons-material/Factory";
+import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
+import FormatListNumberedRtlIcon from "@mui/icons-material/FormatListNumberedRtl";
+import PhotoSizeSelectSmallIcon from "@mui/icons-material/PhotoSizeSelectSmall";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import LogoutIcon from "@mui/icons-material/Logout";
 import {
   selectUser,
   selectSmallNav,
@@ -19,17 +26,23 @@ const Sidebar = () => {
   return (
     <div className="h-100">
       {!smallNav ? (
-        <Navbar expand="lg" bg="dark" className="borderRadius-15 h-100">
+        <Navbar
+          expand="lg"
+          bg="dark"
+          className="borderRadius-15 h-100 sidebar-transition "
+          style={{ transition: 0.5 }}
+        >
           <Navbar.Collapse
             id="basic-navbar-nav"
-            className="w-100 h-100 d-flex flex-column justify-content-between"
+            className="w-100 h-100 d-flex flex-column justify-content-between sidebar-transition"
           >
             <div className="mt-3 d-flex w-100">
               <Nav className="d-flex flex-column align-items-center w-100">
-                <div className="mb-3">
+                <div className=" mb-3">
                   <MenuIcon
                     style={{ cursor: "pointer" }}
-                    className="fs-6 text-white"
+                    className="   text-white"
+                    sx={{ fontSize: 40 }}
                     onClick={() => {
                       dispatch(RsetSmallNav(!smallNav));
                     }}
@@ -44,9 +57,7 @@ const Sidebar = () => {
                   localStorage.removeItem("token");
                   navigate("/");
                 }}
-              >
-                {/* Your logout icon */}
-              </span>
+              ></span>
               <div style={{ height: "50px" }}></div>
             </div>
           </Navbar.Collapse>
@@ -69,61 +80,88 @@ const Sidebar = () => {
                   </div>
                   <div className="">
                     <MenuIcon
-                      className="fs-6 text-white "
+                      className=" text-white "
                       style={{ cursor: "pointer" }}
+                      sx={{ fontSize: 25 }}
                       onClick={() => {
                         console.log("hi");
+
                         dispatch(RsetSmallNav(!smallNav));
                       }}
                     />
                   </div>
                 </Navbar.Brand>
-                <h2
+                <h3
                   class
                   onClick={() => navigate("/Dashboard")}
-                  className="sidebar-link text-white mt-2 my-3 "
+                  className="sidebar-link text-white mt-3h3 my-3 "
                   style={{ cursor: "pointer" }}
                 >
-                  <span className="ms-3">{/* Your home link content */}</span>
-                  <span className="ms-3">داشبورد</span>
-                </h2>
-                <h2
+                  <span className="ms-3">
+                    <CottageIcon />
+                  </span>
+                  <span className=" ms-3">خانه</span>
+                </h3>
+                <h3
                   class
                   onClick={() => navigate("/home")}
-                  className="sidebar-link text-white mt-2 my-3 "
+                  className="sidebar-link text-white mt-3h3 my-3 "
                   style={{ cursor: "pointer" }}
                 >
-                  <span className="ms-3">{/* Your home link content */}</span>
-                  <span className="ms-3">داشبورد</span>
-                </h2>
-                <h2
+                  <span className="ms-3">
+                    {" "}
+                    <FactoryIcon />
+                  </span>
+                  <span className="ms-3">مدیریت کارخانه ها</span>
+                </h3>
+                <h3
                   class
                   onClick={() => navigate("/home")}
-                  className="sidebar-link text-white mt-2 my-3 "
+                  className="sidebar-link text-white mt-3h3 my-3 "
                   style={{ cursor: "pointer" }}
                 >
-                  <span className="ms-3">{/* Your home link content */}</span>
-                  <span className="ms-3">داشبورد</span>
-                </h2>
-                <h2
+                  <span className="ms-3">
+                    {" "}
+                    <PhotoSizeSelectSmallIcon />
+                  </span>
+                  <span className="ms-3">مدل و ابعاد نسوز ها</span>
+                </h3>
+                <h3
                   class
                   onClick={() => navigate("/home")}
-                  className="sidebar-link text-white mt-2 my-3 "
+                  className="sidebar-link text-white mt-3h3 my-3 "
                   style={{ cursor: "pointer" }}
                 >
-                  <span className="ms-3">{/* Your home link content */}</span>
-                  <span className="ms-3">داشبورد</span>
-                </h2>
-                <h2
+                  <span className="ms-3">
+                    {" "}
+                    <LocalFireDepartmentIcon />
+                  </span>
+                  <span className="ms-3">لیست پخش کوره ها</span>
+                </h3>
+                <h3
                   class
                   onClick={() => navigate("/home")}
-                  className="sidebar-link text-white mt-2 my-3 "
+                  className="sidebar-link text-white mt-3h3 my-3 "
                   style={{ cursor: "pointer" }}
                 >
-                  <span className="ms-3">{/* Your home link content */}</span>
-                  <span className="ms-3">داشبورد</span>
-                </h2>
-                {/* Additional links go here */}
+                  <span className="ms-3">
+                    {" "}
+                    <ManageAccountsIcon />
+                  </span>
+                  <span className="ms-3">مدیریت کاربران</span>
+                </h3>
+                <h3
+                  class
+                  onClick={() => navigate("/home")}
+                  className="sidebar-link text-white mt-3h3 my-3 "
+                  style={{ cursor: "pointer" }}
+                >
+                  <span className="ms-3">
+                    {" "}
+                    <FormatListNumberedRtlIcon />
+                  </span>
+                  <span className="ms-3">لیست ملزومات</span>
+                </h3>
               </Nav>
             </div>
             <div>
@@ -134,11 +172,14 @@ const Sidebar = () => {
                     navigate("/");
                   }}
                 >
-                  {/* Your logout icon */}
+                  <LogoutIcon />
                 </span>
                 <span
                   className="font12"
-                  onClick={() => dispatch(RsetIsLoggedIn(false))}
+                  onClick={() => {
+                    dispatch(RsetIsLoggedIn(false));
+                    navigate("/");
+                  }}
                 >
                   خروج
                 </span>
