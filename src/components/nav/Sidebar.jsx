@@ -140,7 +140,7 @@ const Sidebar = () => {
                 </h3>
                 <h3
                   class
-                  onClick={() => navigate("/home")}
+                  onClick={() => navigate("/userManagment")}
                   className="sidebar-link text-white mt-3h3 my-3 "
                   style={{ cursor: "pointer" }}
                 >

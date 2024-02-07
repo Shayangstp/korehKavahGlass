@@ -9,6 +9,7 @@ const initialState = {
   userManagmentCurrentUser: "",
   //modal
   userManagmentEditModal: false,
+  userManagmentAddmodal: false,
 };
 
 // export const handleStaffLogin = createAsyncThunk(
@@ -65,6 +66,10 @@ const userManagmentSlices = createSlice({
     RsetUserManagmentEditModal: (state, { payload }) => {
       return { ...state, userManagmentEditModal: payload };
     },
+
+    RsetuserManagmentAddmodal: (state, { payload }) => {
+      return { ...state, userManagmentAddmodal: payload };
+    },
   },
 });
 
@@ -75,6 +80,7 @@ export const {
   RsetUserManagmentUserName,
   RsetUserManagmentCurrentUser,
   RsetUserManagmentEditModal,
+  RsetuserManagmentAddmodal,
 } = userManagmentSlices.actions;
 
 export const selectUserManagmentList = (state) =>
@@ -89,5 +95,7 @@ export const selectUserManagmentCurrentUser = (state) =>
   state.userManagment.userManagmentCurrentUser;
 export const selectUserManagmentEditModal = (state) =>
   state.userManagment.userManagmentEditModal;
+export const selectuserManagmentAddmodal = (state) =>
+  state.userManagment.userManagmentAddmodal;
 
 export default userManagmentSlices.reducer;

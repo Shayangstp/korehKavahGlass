@@ -6,10 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   RsetUserManagmentEditModal,
   selectUserManagmentEditModal,
-  RsetUserManagmentCurrentUser,
   selectUserManagmentCurrentUser,
   selectUserManagmentLastName,
   selectUserManagmentFirstName,
+  selectuserManagmentAddmodal,
+  RsetuserManagmentAddmodal,
 } from "../../../slices/userManagmentSlices";
 import {
   Box,
@@ -21,17 +22,17 @@ import {
   TextField,
 } from "@mui/material";
 
-const UserManagementEditModal = () => {
+const AddModal = () => {
   const dispatch = useDispatch();
-  const userManagmentEditModal = useSelector(selectUserManagmentEditModal);
-  const userManagmentCurrentUser = useSelector(selectUserManagmentCurrentUser);
+  const userManagmentAddmodal = useSelector(selectuserManagmentAddmodal);
+  //user this selector for  your modal change all
   // const selectUserManagmentFirstName = useSelector(
   //   selectUserManagmentFirstName
   // );
   // const selectUserManagmentLastName = useSelector(selectUserManagmentLastName);
 
   const handleModalCancel = () => {
-    dispatch(RsetUserManagmentEditModal(false));
+    dispatch(RsetuserManagmentAddmodal(false));
   };
   // useEffect({});
 
@@ -56,12 +57,11 @@ const UserManagementEditModal = () => {
       boxShadow: "0 0 30px #999",
     },
   };
-
   return (
     <ConfigProvider direction="rtl" locale={fa_IR}>
       <Modal
-        title={`ویرایش کاربر ${userManagmentCurrentUser.userName}`}
-        open={userManagmentEditModal}
+        title={"افزودن کاربر "}
+        open={userManagmentAddmodal}
         styles={modalStyles}
         closable={false}
         onOk={handleModalCancel}
@@ -96,7 +96,7 @@ const UserManagementEditModal = () => {
               variant="outlined"
               fullWidth
               margin="normal"
-              value={userManagmentCurrentUser.firstName}
+
               // onChange={(e) =>
               //   dispatch(RsetuserManagmentNewFirstName(e.target.value))
               // }
@@ -104,12 +104,7 @@ const UserManagementEditModal = () => {
           </Box>
           <Box>
             <InputLabel className="fw-bold fs-5">نام خانوادگی</InputLabel>
-            <TextField
-              variant="outlined"
-              fullWidth
-              margin="normal"
-              value={userManagmentCurrentUser.lastName}
-            />
+            <TextField variant="outlined" fullWidth margin="normal" />
           </Box>
 
           <FormGroup>
@@ -129,4 +124,4 @@ const UserManagementEditModal = () => {
   );
 };
 
-export default UserManagementEditModal;
+export default AddModal;

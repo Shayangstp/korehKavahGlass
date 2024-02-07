@@ -8,6 +8,9 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import ListIcon from "@mui/icons-material/List";
 import UserManagementEditModal from "./modal/UserManagementEditModal";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import AddModal from "./modal/addUsermodal";
+
 //slices
 import { selectLoading, RsetLoading } from "../../slices/mainSlices";
 import {
@@ -15,6 +18,8 @@ import {
   RsetUserManagmentEditModal,
   RsetUserManagmentCurrentUser,
   selectUserManagmentCurrentUser,
+  selectuserManagmentAddmodal,
+  RsetuserManagmentAddmodal,
 } from "../../slices/userManagmentSlices";
 
 const data = [
@@ -74,7 +79,12 @@ const UsersList = () => {
   const loading = useSelector(selectLoading);
   const userManagmentEditModal = useSelector(selectUserManagmentEditModal);
   const userManagmentCurrentUser = useSelector(selectUserManagmentCurrentUser);
-  console.log(userManagmentCurrentUser);
+  const userManagmentAddmodal = useSelector(selectuserManagmentAddmodal);
+  const handleAddUserModalOpen = () => {
+    dispatch(RsetuserManagmentAddmodal(true));
+  };
+  console.log(userManagmentAddmodal);
+
   //table search
   const getColumnSearchProps = (dataIndex, placeholder) => ({
     filterDropdown: ({
@@ -309,17 +319,17 @@ const UsersList = () => {
               </span>
               مدیریت کاریران{" "}
             </div>
-            {/* <Button
+            <Button
+              title="افزودن کاربر جدید"
               size="sm"
               variant="success"
-              className="px-4 me-4 shadow"
-              onClick={() => {
-                dispatch(RsetCategoryAddModal(true));
-              }}
+              className=" me-4 shadow rounded-circle py-2"
+              onClick={handleAddUserModalOpen}
             >
-              + افزودن
-            </Button> */}
+              <AddCircleIcon />
+            </Button>
           </div>
+
           <div>
             <div className="d-flex align-items-center justify-content-between"></div>
             <div dir="rtl" className="position-relative">
@@ -386,6 +396,7 @@ const UsersList = () => {
           </div>
         </section>
         {userManagmentEditModal && <UserManagementEditModal />}
+        {userManagmentAddmodal && <AddModal />}
       </Fragment>
     </Container>
   );
